@@ -1,0 +1,11 @@
+D:\Repository\GoodGamseSimpleBot\GoodGamseSimpleBot\bin\Debug\netcoreapp2.2\GoodGamseSimpleBot.deps.json
+D:\Repository\GoodGamseSimpleBot\GoodGamseSimpleBot\bin\Debug\netcoreapp2.2\GoodGamseSimpleBot.runtimeconfig.json
+D:\Repository\GoodGamseSimpleBot\GoodGamseSimpleBot\bin\Debug\netcoreapp2.2\GoodGamseSimpleBot.runtimeconfig.dev.json
+D:\Repository\GoodGamseSimpleBot\GoodGamseSimpleBot\bin\Debug\netcoreapp2.2\GoodGamseSimpleBot.dll
+D:\Repository\GoodGamseSimpleBot\GoodGamseSimpleBot\obj\Debug\netcoreapp2.2\GoodGamseSimpleBot.csprojAssemblyReference.cache
+D:\Repository\GoodGamseSimpleBot\GoodGamseSimpleBot\obj\Debug\netcoreapp2.2\GoodGamseSimpleBot.csproj.CoreCompileInputs.cache
+D:\Repository\GoodGamseSimpleBot\GoodGamseSimpleBot\obj\Debug\netcoreapp2.2\GoodGamseSimpleBot.AssemblyInfoInputs.cache
+D:\Repository\GoodGamseSimpleBot\GoodGamseSimpleBot\obj\Debug\netcoreapp2.2\GoodGamseSimpleBot.AssemblyInfo.cs
+D:\Repository\GoodGamseSimpleBot\GoodGamseSimpleBot\bin\Debug\netcoreapp2.2\GoodGamseSimpleBot.pdb
+D:\Repository\GoodGamseSimpleBot\GoodGamseSimpleBot\obj\Debug\netcoreapp2.2\GoodGamseSimpleBot.dll
+D:\Repository\GoodGamseSimpleBot\GoodGamseSimpleBot\obj\Debug\netcoreapp2.2\GoodGamseSimpleBot.pdb
