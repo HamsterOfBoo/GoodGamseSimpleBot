@@ -14,10 +14,10 @@ namespace GoodGamseSimpleBot.Controllers
         string authDataFilePath = string.Concat(Environment.CurrentDirectory, @"\AuthenticateData.txt");
         string messageDataFilePath = string.Concat(Environment.CurrentDirectory, @"\MessagesData.txt");
 
-        private AuthDataJson _authData;
+        private string _authData;
         private List<string> _messageData;
 
-        public AuthDataJson authData { get { return _authData; } }
+        public string authData { get { return _authData; } }
         public List<string> messageData { get { return _messageData; } }
 
 
@@ -27,7 +27,7 @@ namespace GoodGamseSimpleBot.Controllers
             _messageData.AddRange(GetMessagesDataFromFile(messageDataFilePath));
         }
 
-        private AuthDataJson GetAuthDataFromFile(string authDataFilePath)
+        private string GetAuthDataFromFile(string authDataFilePath)
         {
             if (!File.Exists(authDataFilePath))
             {
@@ -41,9 +41,8 @@ namespace GoodGamseSimpleBot.Controllers
                 {
                     byte[] buffer = new byte[fs.Length];
                     fs.Read(buffer, 0, buffer.Length);
-                    var inputText = Encoding.Default.GetString(buffer);
                     
-                    return JsonConvert.DeserializeObject<AuthDataJson>(inputText); 
+                    return Encoding.Default.GetString(buffer); 
                 }
             }
             catch (Exception ex)

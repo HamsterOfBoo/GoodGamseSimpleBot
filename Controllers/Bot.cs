@@ -14,29 +14,33 @@ namespace GoodGamseSimpleBot.Controllers
 {
     public class Bot
     {
-        private AuthDataJson _authData ;
-        private List<MessageJson> _messageData;
+        private AuthDataJson _authData;
+        private List<MessageJson> _messageData = new List<MessageJson>();
         private ConnectToChannelJson _connectToChannelData = new ConnectToChannelJson("7450");
         private DisconnectFromChannelJson _disconnectData = new DisconnectFromChannelJson("7450");
 
         private UTF8Encoding encoder = new UTF8Encoding();
-        private Random rnd = new Random();
-
-        private DataReader dataReader = new DataReader();        
-
-        public async Task StartBot()
+        
+        
+        private void GetDataFromReader()
         {
-            Uri serverUrl = new Uri("ws://chat.goodgame.ru:8081/chat/websocket");
-
+            DataReader dataReader = new DataReader();
             dataReader.GetData();
 
-            _authData = dataReader.authData;
-            
-            foreach(var text in dataReader.messageData)
+            _authData = JsonConvert.DeserializeObject<AuthDataJson>(dataReader.authData);
+
+            foreach (var text in dataReader.messageData)
             {
                 _messageData.Add(new MessageJson("7450", text));
             }
+        }
 
+        public async Task StartBot()
+        {
+            GetDataFromReader();
+
+            Uri serverUrl = new Uri("ws://chat.goodgame.ru:8081/chat/websocket");
+            
             using (var webSocketClient = new ClientWebSocket())
             {
                 
@@ -98,6 +102,7 @@ namespace GoodGamseSimpleBot.Controllers
 
         private async Task ConnectToChat(ClientWebSocket WebSocketClient)
         {
+
             try
             {
                 await Task.Delay(1000);
@@ -107,14 +112,7 @@ namespace GoodGamseSimpleBot.Controllers
                 Console.WriteLine("Trying to join chat...");
                 await WebSocketClient.SendAsync(new ArraySegment<Byte>(buffer), WebSocketMessageType.Binary,
                     true, CancellationToken.None);
-
-                await Task.Delay(1000);
-
-                AuthJson = JsonConvert.SerializeObject(_messageData);
-                buffer = encoder.GetBytes(AuthJson);
-                await WebSocketClient.SendAsync(new ArraySegment<Byte>(buffer), WebSocketMessageType.Binary,
-                   true, CancellationToken.None);
-
+                
             }
             catch (Exception ex)
             {
@@ -124,8 +122,10 @@ namespace GoodGamseSimpleBot.Controllers
 
         private async Task BeginCommunication (ClientWebSocket WebSocketClient)
         {
+
             try
             {
+                Random rnd = new Random();
 
                 byte[] buffer;
                 string MessageJson;
@@ -133,7 +133,7 @@ namespace GoodGamseSimpleBot.Controllers
                 {
                     await Task.Delay(2000);
 
-                    MessageJson = JsonConvert.SerializeObject(_messageData);
+                    MessageJson = JsonConvert.SerializeObject(_messageData[rnd.Next(_messageData.Count)]);
                     buffer = encoder.GetBytes(MessageJson);
                     await WebSocketClient.SendAsync(new ArraySegment<Byte>(buffer), WebSocketMessageType.Binary,
                        true, CancellationToken.None);
