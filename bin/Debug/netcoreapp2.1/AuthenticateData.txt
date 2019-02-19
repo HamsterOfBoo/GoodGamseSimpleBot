@@ -1,0 +1,7 @@
+{
+    "type": "auth",
+    "data": {
+        "user_id": "0",
+        "token": "0"
+    }
+}

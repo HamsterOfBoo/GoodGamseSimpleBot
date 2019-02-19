@@ -22,7 +22,7 @@ namespace GoodGamseSimpleBot.Controllers
         private UTF8Encoding encoder = new UTF8Encoding();
         
         
-        private void GetDataFromReader()
+        private async void GetDataFromReader()
         {
             DataReader dataReader = new DataReader();
             dataReader.GetData();

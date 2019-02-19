@@ -15,7 +15,7 @@ namespace GoodGamseSimpleBot.Controllers
         string messageDataFilePath = string.Concat(Environment.CurrentDirectory, @"\MessagesData.txt");
 
         private string _authData;
-        private List<string> _messageData;
+        private List<string> _messageData = new List<string>();
 
         public string authData { get { return _authData; } }
         public List<string> messageData { get { return _messageData; } }
@@ -56,7 +56,7 @@ namespace GoodGamseSimpleBot.Controllers
 
         private string[] GetMessagesDataFromFile(string messageDataFilePath)
         {
-            if (!File.Exists(authDataFilePath))
+            if (!File.Exists(messageDataFilePath))
             {
                 Console.WriteLine("Файл данных пользователя не найден.");
                 Thread.Sleep(3000);
@@ -64,12 +64,13 @@ namespace GoodGamseSimpleBot.Controllers
             }
             try
             {
-                using (FileStream fs = File.OpenRead(authDataFilePath))
+                using (FileStream fs = File.OpenRead(messageDataFilePath))
                 {
                     byte[] buffer = new byte[fs.Length];
                     fs.Read(buffer, 0, buffer.Length);
                     var inputText = Encoding.Default.GetString(buffer);
-                    return inputText.Split('\n');
+                    var ololo = inputText.Split('\n');
+                    return ololo;
                 }
             }
             catch (Exception ex)
