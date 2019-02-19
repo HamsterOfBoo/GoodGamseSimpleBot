@@ -14,17 +14,28 @@ namespace GoodGamseSimpleBot.Controllers
 {
     public class Bot
     {
-        private AuthDataJson _authData = new AuthDataJson( "35683", "1f00bd990c9634dc3ca05a9660d53122");
-        private MessageJson _messageData = new MessageJson("7450", "hue");
+        private AuthDataJson _authData ;
+        private List<MessageJson> _messageData;
         private ConnectToChannelJson _connectToChannelData = new ConnectToChannelJson("7450");
         private DisconnectFromChannelJson _disconnectData = new DisconnectFromChannelJson("7450");
 
-        private static UTF8Encoding encoder = new UTF8Encoding();
+        private UTF8Encoding encoder = new UTF8Encoding();
+        private Random rnd = new Random();
 
+        private DataReader dataReader = new DataReader();        
 
         public async Task StartBot()
         {
             Uri serverUrl = new Uri("ws://chat.goodgame.ru:8081/chat/websocket");
+
+            dataReader.GetData();
+
+            _authData = dataReader.authData;
+            
+            foreach(var text in dataReader.messageData)
+            {
+                _messageData.Add(new MessageJson("7450", text));
+            }
 
             using (var webSocketClient = new ClientWebSocket())
             {
@@ -32,7 +43,7 @@ namespace GoodGamseSimpleBot.Controllers
                 try
                 {
                     await webSocketClient.ConnectAsync(serverUrl, CancellationToken.None);
-                    await Task.WhenAll(ReciveMsgs(webSocketClient),Authenticate(webSocketClient), ConnectToChat(webSocketClient));
+                    await Task.WhenAll(ReciveMsgs(webSocketClient),Authenticate(webSocketClient), ConnectToChat(webSocketClient),BeginCommunication(webSocketClient));
 
 
                 }
@@ -82,8 +93,7 @@ namespace GoodGamseSimpleBot.Controllers
                     Console.WriteLine("Response:  " + jsonResponse);
             
                 }
-            }
-            Console.WriteLine("Ушон нахуй отдыхать");
+            }            
         }
 
         private async Task ConnectToChat(ClientWebSocket WebSocketClient)
@@ -112,7 +122,29 @@ namespace GoodGamseSimpleBot.Controllers
             };
         }
 
+        private async Task BeginCommunication (ClientWebSocket WebSocketClient)
+        {
+            try
+            {
 
+                byte[] buffer;
+                string MessageJson;
+                while (WebSocketClient.State == WebSocketState.Open)
+                {
+                    await Task.Delay(2000);
+
+                    MessageJson = JsonConvert.SerializeObject(_messageData);
+                    buffer = encoder.GetBytes(MessageJson);
+                    await WebSocketClient.SendAsync(new ArraySegment<Byte>(buffer), WebSocketMessageType.Binary,
+                       true, CancellationToken.None);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception: {0}", ex);
+            };
+        }
        
 
     }
