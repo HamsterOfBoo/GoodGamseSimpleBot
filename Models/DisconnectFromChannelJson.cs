@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GoodGamseSimpleBot.Models.Disconnect
 {
-    class DisconnectFromChannelJson
+    public class DisconnectFromChannelJson
     {
         public string type { get; set; }
         public Data data { get; set; }

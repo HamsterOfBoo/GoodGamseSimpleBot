@@ -5,7 +5,7 @@ using System.Text;
 namespace GoodGamseSimpleBot.Models.Auth
 {
     [Serializable]
-    class AuthDataJson
+    public class AuthDataJson
     {
         public string type { get; set; }
         public Data data { get; set; }

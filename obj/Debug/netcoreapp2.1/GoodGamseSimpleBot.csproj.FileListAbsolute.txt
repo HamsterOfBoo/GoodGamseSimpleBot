@@ -12,7 +12,6 @@ D:\Repository\GoodGamseSimpleBot\GoodGamseSimpleBot\bin\Debug\netcoreapp2.1\Good
 D:\Repository\GoodGamseSimpleBot\GoodGamseSimpleBot\bin\Debug\netcoreapp2.1\GoodGamseSimpleBot.dll
 D:\Repository\GoodGamseSimpleBot\GoodGamseSimpleBot\bin\Debug\netcoreapp2.1\GoodGamseSimpleBot.pdb
 D:\Repository\GoodGamseSimpleBot\GoodGamseSimpleBot\obj\Debug\netcoreapp2.1\GoodGamseSimpleBot.csprojAssemblyReference.cache
-D:\Repository\GoodGamseSimpleBot\GoodGamseSimpleBot\obj\Debug\netcoreapp2.1\GoodGamseSimpleBot.csproj.CoreCompileInputs.cache
 D:\Repository\GoodGamseSimpleBot\GoodGamseSimpleBot\obj\Debug\netcoreapp2.1\GoodGamseSimpleBot.AssemblyInfoInputs.cache
 D:\Repository\GoodGamseSimpleBot\GoodGamseSimpleBot\obj\Debug\netcoreapp2.1\GoodGamseSimpleBot.AssemblyInfo.cs
 D:\Repository\GoodGamseSimpleBot\GoodGamseSimpleBot\obj\Debug\netcoreapp2.1\GoodGamseSimpleBot.dll

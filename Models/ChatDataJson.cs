@@ -4,12 +4,12 @@ using System.Text;
 
 namespace GoodGamseSimpleBot.Models.Connect
 {
-    class ConnectToChannelJson
+    public class ChatDataJson
     {
         public string type { get; set; }
         public Data data { get; set; }
 
-        public ConnectToChannelJson(string ChannelId)
+        public ChatDataJson(string ChannelId)
         {
             type = "join";
             data = new Data

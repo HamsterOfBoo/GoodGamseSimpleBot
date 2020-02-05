@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GoodGamseSimpleBot.Models.Message
 {
-    class MessageJson
+    public class MessageJson
     {
         public string type { get; set; }
         public Data data { get; set; }

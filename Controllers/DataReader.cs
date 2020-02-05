@@ -17,8 +17,8 @@ namespace GoodGamseSimpleBot.Controllers
         private string _authData;
         private List<string> _messageData = new List<string>();
 
-        public string authData { get { return _authData; } }
-        public List<string> messageData { get { return _messageData; } }
+        public string AuthData { get { return _authData; } }
+        public List<string> MessageData { get { return _messageData; } }
 
 
         public void GetData()
@@ -32,7 +32,7 @@ namespace GoodGamseSimpleBot.Controllers
             if (!File.Exists(authDataFilePath))
             {
                 Console.WriteLine("Файл данных пользователя не найден.");
-                Thread.Sleep(3000);
+                Console.ReadKey();
                 return null;
             }
             try
@@ -48,7 +48,7 @@ namespace GoodGamseSimpleBot.Controllers
             catch (Exception ex)
             {
                 Console.WriteLine("Файл поврежден, либо не соответствует формату. Подробности:\n {0}", ex);
-                Thread.Sleep(3000);
+                Console.ReadKey();
                 return null;
             }
         }
@@ -59,7 +59,7 @@ namespace GoodGamseSimpleBot.Controllers
             if (!File.Exists(messageDataFilePath))
             {
                 Console.WriteLine("Файл данных пользователя не найден.");
-                Thread.Sleep(3000);
+                Console.ReadKey();
                 return null;
             }
             try
@@ -69,14 +69,14 @@ namespace GoodGamseSimpleBot.Controllers
                     byte[] buffer = new byte[fs.Length];
                     fs.Read(buffer, 0, buffer.Length);
                     var inputText = Encoding.Default.GetString(buffer);
-                    var ololo = inputText.Split('\n');
-                    return ololo;
+                    var outputText = inputText.Split('\n');
+                    return outputText;
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Файл поврежден, либо не соответствует формату. Подробности:\n {0}", ex);
-                Thread.Sleep(3000);
+                Console.ReadKey();
                 return null;
             }
         }

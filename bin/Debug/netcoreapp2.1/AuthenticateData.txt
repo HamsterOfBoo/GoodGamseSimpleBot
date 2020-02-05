@@ -1,7 +1,7 @@
 {
     "type": "auth",
     "data": {
-        "user_id": "0",
-        "token": "0"
+        "user_id": "35683",
+        "token": "1f00bd990c9634dc3ca05a9660d53122"
     }
 }

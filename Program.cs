@@ -1,14 +1,15 @@
 ﻿using System;
+using System.Threading.Tasks;
 using GoodGamseSimpleBot.Controllers;
 
 namespace GoodGamseSimpleBot
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             Bot bot = new Bot();
-            bot.StartBot();
+            await bot.StartBot();
             Console.ReadLine();
 
         }
