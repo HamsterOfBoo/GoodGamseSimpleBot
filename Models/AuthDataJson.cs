@@ -7,31 +7,23 @@ namespace GoodGamseSimpleBot.Models.Auth
     [Serializable]
     public class AuthDataJson
     {
-        public string type { get; set; }
+        public string type
+        {
+            get { return "auth";}
+            set { type = value; }
+        }
         public Data data { get; set; }
 
-        public AuthDataJson( string User_id, string Token)
-        {
-            type = "auth";
-            data = new Data
-            {
-                user_id = User_id,
-                token = Token
-            };
-        }
-        public AuthDataJson()
-        {
-            type = "auth";
-            data = new Data
-            {
-                user_id = string.Empty,
-                token = string.Empty
-            };
-        }
     }
     public class Data
     {
         public string user_id { get; set; }
         public string token { get; set; }
+
+        public Data(string userId, string token)
+        {
+            this.user_id = userId;
+            this.token = token;
+        }
     }
 }

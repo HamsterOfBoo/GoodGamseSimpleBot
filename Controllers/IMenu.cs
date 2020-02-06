@@ -9,9 +9,9 @@ namespace GoodGamseSimpleBot.Controllers
 {
     public interface IMenu
     {
-        Dictionary<string,string> commandsToAnsweer();
-        IAuthData authData();
-        IClient client();
+        Dictionary<string, string> CommandsToAnsweer { get; set; }
+        IAuthData AuthData { get; set; }
+        IClient Client { get; set; }
 
 
         void GetAuthData();
