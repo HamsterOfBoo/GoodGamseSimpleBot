@@ -12,15 +12,16 @@ namespace GoodGamseSimpleBot.Controllers
 {
     class GoodGameConnector : IConnector
     {
+        public ISettings Settings { get; set; }
         public IAuthData AuthData { get; set; }
         public IClient Client { get; set; }
         public IChatData ChatData { get; set; }
         public ILisenter Listener { get; set; }
         public ClientWebSocket CWS { get; set; }
 
-        public GoodGameConnector()
+        public GoodGameConnector(ISettings settings)
         {
-
+            Settings = settings;
             Listener = new GoodGameListener();
         }
 
@@ -43,19 +44,24 @@ namespace GoodGamseSimpleBot.Controllers
             return true;
         }
 
-        public async Task<bool> Authenticate(ISettings settings)
+        public Task<bool> ConnectToUri()
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<bool> Authenticate()
         {
               
 
             return true;
         }
 
-        public Task<bool> ConnectToChat(ISettings authData)
+        public Task<bool> ConnectToChat()
         {
             throw new NotImplementedException();
         }
 
-        public Task<bool> Communicate(IConnector connector, Dictionary<string, string> commandsToAnsweer)
+        public Task<bool> Communicate()//IConnector connector, Dictionary<string, string> commandsToAnsweer)
         {
             throw new NotImplementedException();
         }

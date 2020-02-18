@@ -16,26 +16,26 @@ namespace GoodGamseSimpleBot.Controllers
         public ICommunicator Communicator { get; set; }
         public async Task<string> Lisent(ClientWebSocket CWS, ISettings settings)
         {
-            
-                byte[] buffer = new byte[4096];
-                while (CWS.State == WebSocketState.Open)
-                {
-                    var response = await CWS.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
+            byte[] buffer = new byte[4096];
+            while (CWS.State == WebSocketState.Open)
+            {
+                var response = await CWS.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
 
-                    if (response.MessageType != WebSocketMessageType.Close)
-                    {
+                if (response.MessageType != WebSocketMessageType.Close)
+                {
                         string jsonResponse = Encoding.UTF8.GetString(buffer).TrimEnd('\0');
                         Console.WriteLine("Response:  " + jsonResponse);
 
-                        yield return jsonResponse;
+                        return jsonResponse;
                 }
-                    else
-                    {
+                else
+                {
                         Console.WriteLine("Web Socket Closed");
                         await CWS.CloseAsync(WebSocketCloseStatus.NormalClosure, string.Empty, CancellationToken.None);
-                    }
-
+                        return string.Empty;
                 }
+            }
+            return string.Empty;
         }
 
         public IConnector InitCommunicate(IClient client)
