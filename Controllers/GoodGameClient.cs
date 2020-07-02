@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.WebSockets;
 using System.Text;
 using System.Threading.Tasks;
 using GoodGamseSimpleBot.Models;
 using GoodGamseSimpleBot.Models.Auth;
-using GoodGamseSimpleBot.Models.Connect;
+using GoodGamseSimpleBot.Models.Connect;    
 
 namespace GoodGamseSimpleBot.Controllers
 {
@@ -43,11 +44,25 @@ namespace GoodGamseSimpleBot.Controllers
             //_authData = _authData;
         }
 
-        public Task StartClient()
+        public async Task StartClient()
         {
-            _connector.ConnectToUri();
-            _connector.Authenticate();
-            return null;
+            string response;
+            
+            using (ClientWebSocket CWS = new ClientWebSocket())
+            {
+                Task.Run(() =>
+                    {
+                        while (CWS.State == WebSocketState.Open)
+                        {
+                           _listener.Lisent(CWS, _settings);
+                        }
+                    }
+                );
+                await _connector.ConnectToUri();
+                await _connector.Authenticate();
+            }
+            
+            return;
 
         }
     }

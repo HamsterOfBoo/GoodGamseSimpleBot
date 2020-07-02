@@ -20,7 +20,7 @@ namespace GoodGamseSimpleBot.Controllers
 
         private AuthDataJson _authData;
         private List<MessageJson> _messageData = new List<MessageJson>();
-        private ConnectToChannelJson _connectToChannelData = new ConnectToChannelJson("7450");
+        //private ConnectToChannelJson _connectToChannelData = new ConnectToChannelJson("7450");
         private DisconnectFromChannelJson _disconnectData = new DisconnectFromChannelJson("7450");
 
         private UTF8Encoding encoder = new UTF8Encoding();

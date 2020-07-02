@@ -691,7 +691,7 @@
       ]
     },
     "Newtonsoft.Json/12.0.1": {
-      "sha512": "jmVyoEyk0In8r+AObYQyFKVFm7uSRzE0XSHSbEtBJcZDMV6DqJoyB4FLcHwprPVhAh826so0db3DIKXVnpGoPA==",
+      "sha512": "pBR3wCgYWZGiaZDYP+HHYnalVnPJlpP1q55qvVb+adrDHmFMDc1NAKio61xTwftK3Pw5h7TZJPJEEVMd6ty8rg==",
       "type": "package",
       "path": "newtonsoft.json/12.0.1",
       "files": [
@@ -737,31 +737,29 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\hamst\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\hamst\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Repository\\GoodGamseSimpleBot\\GoodGamseSimpleBot\\GoodGamseSimpleBot.csproj",
-      "projectName": "GoodGamseSimpleBot",
-      "projectPath": "D:\\Repository\\GoodGamseSimpleBot\\GoodGamseSimpleBot\\GoodGamseSimpleBot.csproj",
+      "projectUniqueName": "D:\\Repository\\GoodGamseSimpleBot\\GoodGamseSimpleBot\\GoodGameSimpleBot.csproj",
+      "projectName": "GoodGameSimpleBot",
+      "projectPath": "D:\\Repository\\GoodGamseSimpleBot\\GoodGamseSimpleBot\\GoodGameSimpleBot.csproj",
       "packagesPath": "C:\\Users\\hamst\\.nuget\\packages\\",
       "outputPath": "D:\\Repository\\GoodGamseSimpleBot\\GoodGamseSimpleBot\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
         "C:\\Users\\hamst\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 20.1.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.1"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\DevExpress 20.1\\Components\\System\\Components\\Packages": {},
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://www.nuget.org/api/v2": {}
       },
       "frameworks": {
         "netcoreapp2.1": {
@@ -798,7 +796,7 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
       }
     }
   }
