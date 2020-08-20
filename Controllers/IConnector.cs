@@ -11,15 +11,14 @@ namespace GoodGamseSimpleBot.Controllers
 {
     public  interface IConnector
     {
-        ISettings Settings { get; set; }
         IAuthData AuthData { get; set; }
         IClient Client { get; set; }
         IChatData ChatData { get; set; }
         ILisenter Listener { get; set; }
         ClientWebSocket CWS { get; set; }
 
-        Task<bool> ConnectToUri();
-        Task<bool> Authenticate();
-        Task<bool> ConnectToChat();
+        Task<bool> ConnectToUri(ISettings settings);
+        Task<bool> Authenticate(ISettings settings);
+        Task<bool> ConnectToChat(ISettings settings);
     }
 }

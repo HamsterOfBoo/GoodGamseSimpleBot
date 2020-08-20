@@ -15,6 +15,7 @@ namespace GoodGamseSimpleBot.Controllers
 
         Task<string> Lisent(ClientWebSocket CWS, ISettings settings);
 
+        IConnector InitCommunicate(IClient client);
 
 
     }

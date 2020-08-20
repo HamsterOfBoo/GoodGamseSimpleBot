@@ -10,12 +10,6 @@ namespace GoodGamseSimpleBot.Controllers
 {
     class GoodGameClient : IClient
     {
-        public ISettings Settings
-        {
-            private get { return _settings; }
-            set { _settings = value; }
-        }
-
         public IConnector Connector
         {
             get { return _connector; }
@@ -31,24 +25,18 @@ namespace GoodGamseSimpleBot.Controllers
 
         //private AuthDataJson _authData;
         //private ChatDataJson _chatData;
-        private ILisenter _listener;
         private IConnector _connector;
         private ICommunicator _communicator;
-        private ISettings _settings;
 
         public GoodGameClient(ISettings settings)
         {
-            _connector = new GoodGameConnector(_settings);
-            _listener = new GoodGameListener();
             //_authData = _authData;
         }
 
         public Task StartClient()
         {
-            _connector.ConnectToUri();
-            _connector.Authenticate();
             return null;
-
+            //_connector = new IConnector();
         }
     }
 }
